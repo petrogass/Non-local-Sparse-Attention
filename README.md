@@ -1,5 +1,6 @@
 # Non-local-Sparse-Attention
 WORK IN PROGRESS
+
 NLSA: Image Super-Resolution with Non-Local Sparse Attention
 This repository is a didactic reimplementation of the super-resolution method presented in the paper "Image Super-Resolution with Non-Local Sparse Attention" (NLSA). My implementation closely follows the methodology described in the paper, which introduces a novel attention mechanism that captures long-range dependencies with a sparse attention model to enhance the quality of upscaled images significantly.
 
