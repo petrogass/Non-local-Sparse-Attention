@@ -7,8 +7,6 @@ import tensorflow as tf
 from tensorflow import image as tf_image
 from utility import threadsafe_generator
 
-
-
 class DataLoader:
     def __init__(self, data_dir, scale, patch_size=48, batch_size=16):
         self.lock = threading.Lock()
@@ -56,39 +54,29 @@ class DataLoader:
         # Normalize to [0, 1]
         lr_image = tf.cast(lr_image, tf.float32) / 255.0
         hr_image = tf.cast(hr_image, tf.float32) / 255.0
-
         return lr_image, hr_image
 
 
     def generate_batch_test(self):
         while True:
             batch_lr_images = []
-            batch_hr_images = []
-            
+            batch_hr_images = []            
             for _ in range(self.batch_size):
                 random_index = random.randint(0, len(self.lr_test_image_paths) - 1)
-                lr_image, hr_image = self.load_and_augment_image(self.lr_test_image_paths[random_index], self.hr_test_image_paths[random_index])
-                
-
+                lr_image, hr_image = self.load_and_augment_image(self.lr_test_image_paths[random_index], self.hr_test_image_paths[random_index])                
                 batch_lr_images.append(lr_image)
                 batch_hr_images.append(hr_image)
-
             yield tf.stack(batch_lr_images), tf.stack(batch_hr_images)  
             
             
-    def generate_batch_train(self):
-        
+    def generate_batch_train(self):        
         while True:
             with self.lock: 
                 batch_lr_images = []
                 batch_hr_images = []
-            
                 for _ in range(self.batch_size):
                     random_index = random.randint(0, len(self.lr_image_paths) - 1)
                     lr_image, hr_image = self.load_and_augment_image(self.lr_image_paths[random_index], self.hr_image_paths[random_index])
                     batch_lr_images.append(lr_image)
-                    batch_hr_images.append(hr_image)
-                    
-                    
-                
+                    batch_hr_images.append(hr_image) 
                 yield tf.stack(batch_lr_images), tf.stack(batch_hr_images)

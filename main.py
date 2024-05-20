@@ -10,7 +10,6 @@ import json
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 def load_config(config_file):
 	with open(config_file, 'r') as f:
 		config = json.load(f)
@@ -112,7 +111,7 @@ def main():
 		#model.fit(x = data_loader.generate_batch_train(), epochs = 1, steps_per_epoch = 1,workers = 1)
 		model.load_weights("model_weights.h5")
 		
-		evaluation = model.evaluate(data_loader.generate_batch_test(), callbacks =[] , steps = 500, workers = 1)
+		evaluation = model.evaluate(data_loader.generate_batch_test(), callbacks =[] , steps = 50, workers = 1)
 		
 		print(evaluation)
 		
