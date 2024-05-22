@@ -31,8 +31,8 @@ class DataLoader:
         lr_image = tf.image.decode_image(lr_image, channels=3)  
         hr_image = tf.io.read_file(hr_image_path)
         hr_image = tf.image.decode_image(hr_image, channels=3)
-        print(f'low_res:' {lr_image})
-        print(f'hi_res:' {hr_image})  
+        print(f'low_res: {lr_image}')
+        print(f'hi_res: {hr_image}')  
         
         # Get random top-left coordinates for cropping
         #print(tf.shape(lr_image))
