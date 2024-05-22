@@ -20,3 +20,4 @@ mf= MeanShift()
 x = mf.call(lr_image)
 print(x)"""
 
+#salvare le immagini in test mode, mettere possibilitá di caricare dataset diversi in test mode

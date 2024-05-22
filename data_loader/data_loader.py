@@ -14,9 +14,9 @@ class DataLoader:
         self.patch_size = patch_size
         self.batch_size = batch_size
         self.scale = scale
-        self.lr_image_paths = self.load_image_paths('DIV2K_TRAIN_LR\X2')
+        self.lr_image_paths = self.load_image_paths('DIV2K_TRAIN_LR/X2')
         self.hr_image_paths = self.load_image_paths('DIV2K_TRAIN_HR')
-        self.lr_test_image_paths = self.load_image_paths('DIV2K_TEST_LR\X2')
+        self.lr_test_image_paths = self.load_image_paths('DIV2K_TEST_LR/X2')
         self.hr_test_image_paths = self.load_image_paths('DIV2K_TEST_HR')
 
     def load_image_paths(self, folder_name):
