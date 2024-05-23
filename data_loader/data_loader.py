@@ -67,6 +67,11 @@ class DataLoader:
 				lr_image, hr_image = self.load_and_augment_image(self.lr_test_image_paths[random_index], self.hr_test_image_paths[random_index])				
 				batch_lr_images.append(lr_image)
 				batch_hr_images.append(hr_image)
+			for img in batch_lr_images:
+    			print(f"Image shape: {img.shape}")
+
+			for img in batch_hr_images:
+    			print(f"Image shape: {img.shape}")
 			yield tf.stack(batch_lr_images), tf.stack(batch_hr_images)	
 			
 			
