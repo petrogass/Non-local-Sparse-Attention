@@ -76,7 +76,7 @@ class DataLoader:
                 batch_lr_images = []
                 batch_hr_images = []
                 for _ in range(self.batch_size):
-					print('here')
+					print("here")
                     random_index = random.randint(0, len(self.lr_image_paths) - 1)
                     lr_image, hr_image = self.load_and_augment_image(self.lr_image_paths[random_index], self.hr_image_paths[random_index])
                     batch_lr_images.append(lr_image)
