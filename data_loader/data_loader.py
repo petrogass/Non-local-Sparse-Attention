@@ -68,10 +68,10 @@ class DataLoader:
 				batch_lr_images.append(lr_image)
 				batch_hr_images.append(hr_image)
 			for img in batch_lr_images:
-    			print(f"Image shape: {img.shape}")
+				print(f"Image shape: {img.shape}")
 
 			for img in batch_hr_images:
-    			print(f"Image shape: {img.shape}")
+				print(f"Image shape: {img.shape}")
 			yield tf.stack(batch_lr_images), tf.stack(batch_hr_images)	
 			
 			
