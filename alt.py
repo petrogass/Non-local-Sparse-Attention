@@ -16,6 +16,7 @@ def load_config(config_file):
 
 def create_model(config, train=True):
     model = NLSN(config, train=train)
+    print(model.summary())
     return model
 
 def compile_model(model, config):
@@ -80,7 +81,9 @@ def main():
     compile_model(model, config)
     
     if args.mode == 'train':
+        print('predl')
         data_loader = DataLoader(data_dir, config['scale'], config['patch_size'], config['batch_size'])
+        print('postdl')
         train_model(model, data_loader, config)
     elif args.mode == 'test':
         data_loader = DataLoader(data_dir, config['scale'], config['patch_size'], batch_size = 1)

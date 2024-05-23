@@ -27,8 +27,7 @@ class NonLocalSparseAttention(tf.keras.layers.Layer):
 		
 		random_rotations = tf.random.normal(rotations_shape, dtype=x.dtype)
 		random_rotations = tf.tile(random_rotations, (self.N, 1, 1, 1))
-		print(x.shape)
-		print(random_rotations.shape)
+		
 		
 
 		rotated_vecs = tf.einsum('btf,bfhi->bhti', x, random_rotations)
