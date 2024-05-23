@@ -75,7 +75,7 @@ def main():
 		lr_callback = tf.keras.callbacks.LearningRateScheduler(lr_scheduler)
 		loss_and_metrics_callback = LossAndMetricCallback()
 		
-		model.fit_generator(generator = data_loader.generate_batch_train(), epochs = 5, steps_per_epoch = 1, callbacks = [lr_callback, loss_and_metrics_callback], workers = 1)
+		model.fit_generator(generator = data_loader.generate_batch_train(), epochs = num_epochs, steps_per_epoch = num_iter_per_epoch, callbacks = [lr_callback, loss_and_metrics_callback], workers = 1)
 		print(model.summary())
 		model.save_weights("model_weights.h5")
 	
